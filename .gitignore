@@ -1,0 +1,38 @@
+/.phpunit.cache
+/node_modules
+.phpunit.result.cache
+npm-debug.log
+yarn-error.log
+/.fleet
+/.idea
+/.vscode
+
+
+# dependencies
+/nextjs/node_modules
+/nextjs/.pnp
+/nextjs/pnp.js
+
+# testing
+/nextjs/coverage
+
+# next.js
+/nextjs/.next/
+/nextjs/out/
+
+# production
+/nextjs/build
+
+# misc
+/nextjs/DS_Store
+/nextjs/*.pem
+
+# debug
+/nextjs/npm-debug.log*
+/nextjs/yarn-debug.log*
+/nextjs/yarn-error.log*
+
+# vercel
+/nextjs/.vercel
+
+/vendor
