@@ -1,29 +1,31 @@
 import Head from 'next/head'
-// import Link from 'next/link'
-// import { useAuth } from '@/hooks/auth'
 import axios from "../lib/axios";
-import React, { useEffect } from 'react';
+import useSWR from 'swr'
 
 export default function Home() {
-    // const { user } = useAuth({ middleware: 'guest' })
-    // axios.get("/").then(response => {
-    //     console.log(response.data);
-    // });
+		function getLaravelVersion() {
+			const { data, error, isLoading } = useSWR('/',axios);
+			
+			if (error) return "failed to load";
+			if (isLoading) return "loading...";
+			try {
+				return data.data.Laravel;
+			} catch (e) {
+				return "loading...";
+			}
+		}
+		const data = {
+			version: -1
+		}
 
-    useEffect(() => {
-        axios.get("/").then((res) => {
-        const data = res.data;
-        console.log(data);
-       });
-      }, []);
-
+		data.version = getLaravelVersion();
     return (
         <>
             <Head>
                 <title>Laravel Next.js</title>
             </Head>
 
-            <h1></h1>
+            <h1>Laravel version: {data.version}</h1>
 
         </>
     )
